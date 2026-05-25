@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('usuario', function (Blueprint $table) {
-            $table->boolean('permite_descarga_constancia')->default(true)->after('impresiones_constancia');
+            if (!Schema::hasColumn('usuario', 'permite_descarga_constancia')) {
+                $table->boolean('permite_descarga_constancia')->default(true)->after('impresiones_constancia');
+            }
         });
     }
 

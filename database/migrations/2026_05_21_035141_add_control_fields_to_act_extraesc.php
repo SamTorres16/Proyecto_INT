@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('Act_extraesc', function (Blueprint $table) {
-            $table->tinyInteger('inscripcion_abierta')->default(1)->after('cupo_femenino');
-            $table->tinyInteger('parcial1_cerrado')->default(0)->after('inscripcion_abierta');
-            $table->tinyInteger('parcial2_cerrado')->default(0)->after('parcial1_cerrado');
-            $table->tinyInteger('parcial3_cerrado')->default(0)->after('parcial2_cerrado');
+            if (!Schema::hasColumn('Act_extraesc', 'inscripcion_abierta')) {
+                $table->tinyInteger('inscripcion_abierta')->default(1)->after('cupo_femenino');
+                $table->tinyInteger('parcial1_cerrado')->default(0)->after('inscripcion_abierta');
+                $table->tinyInteger('parcial2_cerrado')->default(0)->after('parcial1_cerrado');
+                $table->tinyInteger('parcial3_cerrado')->default(0)->after('parcial2_cerrado');
+            }
         });
     }
 
