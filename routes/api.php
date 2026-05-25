@@ -15,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\Api\QRController;
+use App\Http\Controllers\Api\GeneralApiController;
+
+// Rutas API Generales (Públicas para pruebas)
+Route::get('/usuarios', [GeneralApiController::class, 'usuarios']);
+Route::get('/docentes', [GeneralApiController::class, 'docentes']);
+Route::get('/carreras', [GeneralApiController::class, 'carreras']);
+Route::get('/actividades-extraescolares', [GeneralApiController::class, 'actividadesExtraescolares']);
+Route::get('/tipos-usuario', [GeneralApiController::class, 'tiposUsuario']);
+Route::get('/eventos', [GeneralApiController::class, 'eventos']);
+Route::get('/historiales', [GeneralApiController::class, 'historiales']);
 
 // Ruta pública para obtener el token
 Route::post('/login', [QRController::class, 'login']);
