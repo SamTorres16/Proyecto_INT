@@ -26,6 +26,11 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// --- RUTAS DE VERIFICACIÓN EN DOS PASOS ---
+Route::get('/verificacion', [\App\Http\Controllers\TwoFactorController::class, 'showForm'])->name('2fa.form');
+Route::post('/verificacion', [\App\Http\Controllers\TwoFactorController::class, 'verify'])->name('2fa.verify');
+Route::get('/verificacion/reenviar', [\App\Http\Controllers\TwoFactorController::class, 'resend'])->name('2fa.resend');
+
 // --- RUTAS DEL PANEL PROTEGIDAS POR AUTH ---
 Route::prefix('admon')->middleware('auth')->group(function () {
 
