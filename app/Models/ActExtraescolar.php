@@ -9,7 +9,7 @@ class ActExtraescolar extends Model
 {
     use HasFactory;
 
-    protected $table = 'Act_extraesc'; 
+    protected $table = 'act_extraesc'; 
 
     protected $primaryKey = 'id_act';
 

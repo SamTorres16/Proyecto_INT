@@ -9,7 +9,7 @@ class TipoUsuario extends Model
 {
     use HasFactory;
 
-    protected $table = 'Tipo_usuario';     // Nombre de la tabla
+    protected $table = 'tipo_usuario';     // Nombre de la tabla
     protected $primaryKey = 'id_tipo';     // PK
     public $timestamps = false;            // La tabla no usa timestamps
 

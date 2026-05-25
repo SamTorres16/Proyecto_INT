@@ -137,10 +137,10 @@ class DashboardController extends Controller
 
         // ── Gráfica 5: Usuarios por Tipo ─────────────────────────────
         $porTipo = Usuario::where('generacion', $periodoSeleccionado)
-            ->join('Tipo_usuario', 'usuario.id_tipo', '=', 'Tipo_usuario.id_tipo')
-            ->select('Tipo_usuario.descripcion as id_tipo', DB::raw('COUNT(*) as total'))
-            ->groupBy('Tipo_usuario.descripcion')
-            ->orderBy('Tipo_usuario.descripcion')
+            ->join('tipo_usuario', 'usuario.id_tipo', '=', 'tipo_usuario.id_tipo')
+            ->select('tipo_usuario.descripcion as id_tipo', DB::raw('COUNT(*) as total'))
+            ->groupBy('tipo_usuario.descripcion')
+            ->orderBy('tipo_usuario.descripcion')
             ->get();
 
         // ── Gráfica 6: Usuarios por Actividad ────────────────────────

@@ -154,8 +154,8 @@ class ChatbotController extends Controller
 
             case 'docente.resumen_grupo':
                 $docente = Docente::where('no_empleado', $user->num_control)->first();
-                $conteo = HistorialExtraescolar::whereIn('id_act', function($query) use ($docente) {
-                    $query->select('id_act')->from('Act_extraesc')->where('no_empleado', $docente->no_empleado);
+                $conteo = HistorialExtraescolar::whereIn('id_actividad', function ($query) use ($docente) {
+                    $query->select('id_act')->from('act_extraesc')->where('no_empleado', $docente->no_empleado);
                 })->count();
                 return "Tienes un total de {$conteo} alumnos inscritos en todas tus actividades.";
 
