@@ -17,10 +17,7 @@ return new class extends Migration
                 $table->boolean('used')->default(false);
                 $table->timestamps();
 
-                $table->foreign('num_control')
-                      ->references('num_control')
-                      ->on('usuario')
-                      ->onDelete('cascade');
+                $table->index('num_control');
             });
         }
     }
